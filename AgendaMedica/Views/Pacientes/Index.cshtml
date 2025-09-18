@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AgendaMedica.Models.Paciente>
+
+@{
+	ViewData["Title"] = "Cadastro de Pacientes";
+}
+
+<div class="container text-light">
+	<h1>Cadastro de <span class="fw-bold"> Pacientes</span></h1>
+
+	<p>
+		<a asp-action="Create" class="btn-outline-light w-25"> <i class="bi bi-plus-circle-fill"></i>Adicionar</a>
+	</p>
+	<table class="table table-dark table-striped">
+		<thead>
+			<tr>
+				<th class="bg-black">
+					@Html.DisplayNameFor(model => model.Prontuario)
+				</th>
+				<th class="bg-black">
+					@Html.DisplayNameFor(model => model.Nome)
+				</th>
+				<th class="bg-black">
+					@Html.DisplayNameFor(model => model.CPF)
+				</th>
+				<th class="bg-black">
+					@Html.DisplayNameFor(model => model.DataNasc)
+				</th>
+				<th class="bg-black">
+					@Html.DisplayNameFor(model => model.Celular)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Email)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td class="bg-black">
+						@Html.DisplayFor(modelItem => item.Prontuario)
+					</td>
+					<td class="bg-black">
+						@Html.DisplayFor(modelItem => item.Nome)
+					</td>
+					<td class="bg-black">
+						@Html.DisplayFor(modelItem => item.CPF)
+					</td>
+					<td class="bg-black">
+						@Html.DisplayFor(modelItem => item.DataNasc)
+					</td>
+					<td class="bg-black">
+						@Html.DisplayFor(modelItem => item.Celular)
+					</td>
+					<td class="bg-black">
+						@Html.DisplayFor(modelItem => item.Email)
+					</td>
+					<td>
+						<a class="btn btn-outline-light btn-sm" asp-action="Edit" asp-route-id="@item.PacienteId">
+							<i class="bi bi-pencil-square"></i> Editar
+						</a>
+						<a class="btn btn-outline-light btn-sm" asp-action="Delete" asp-route-id="@item.PacienteId">
+							<i class="bi bi-x-square"></i> Excluir
+						</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
